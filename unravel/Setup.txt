@@ -8,6 +8,7 @@ pip install pyvis
 pip install torch
 pip install pyCausalFS
 pip install pyreadstat
+pip install pyreadr
 
 R
 Install.packages("pcalg")
@@ -27,4 +28,7 @@ Causal.py
 Add below line after import CDT, with your R path
 cdt.SETTINGS.rpath = 'C:/Program Files/R/R-4.3.2/bin/Rscript'
 
+Download TEP data from https://www.kaggle.com/datasets/averkij/tennessee-eastman-process-simulation-dataset/data
+Place under unravel/TEP2017R
+(Maybe use lfs later)
 
