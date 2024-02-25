@@ -1,0 +1,12 @@
+Attendees:
+- Paul Ou
+- Michael Kirley
+- Mansoureh Maadi
+
+Items:
+- Student deed and supporting information
+- Research method
+- Explore characterstics of datasets
+    - Tools: off-the-shelves algorithms including PCA, Bayesian, compare results
+    - Review papers: PCA in pharmaceutical, Bayesian model, causal models
+- Chemical process reading
