@@ -1,0 +1,10 @@
+Attendees:
+- Paul Ou
+- Michael Kirley
+- Mansoureh Maadi
+- Abel Armas Cervantes
+
+Items:
+- Advisory Commitee Chair
+- Discussion about actual dataset
+- Apply techniques on smaller dataset to verify results

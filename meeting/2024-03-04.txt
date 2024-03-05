@@ -1,0 +1,14 @@
+Attendees:
+- Paul Ou
+- Michael Kirley
+- Mansoureh Maadi
+- Abel Armas Cervantes
+
+Items:
+- Update progress on methods applied to fault detection and root cause analysis seperately.
+- Set target for 6 month and confirmation. This includes a survey paper and journal.
+- Analyse the stages, characterstics of the data in more detail
+
+Action:
+- Reach out to Mansoureh to discuss about Survey Paper
+- Better understanding of methods, such as PCA, T2 score for fault detection.

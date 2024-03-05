@@ -36,3 +36,7 @@ cdt.SETTINGS.rpath = 'C:/Program Files/R/R-4.3.2/bin/Rscript' <br />
 Download TEP data from https://www.kaggle.com/datasets/averkij/tennessee-eastman-process-simulation-dataset/data <br />
 Place under unravel/TEP2017R <br />
 (Maybe use lfs later) <br />
+
+For Analyse_data <br />
+pip install pgmpy <br />
+pip install pygraphviz <br />
