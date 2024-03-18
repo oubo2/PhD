@@ -13,7 +13,7 @@ import math
 import random
 
 import matplotlib
-matplotlib.use('TkAgg')
+#matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 
 from pyvis.network import Network
