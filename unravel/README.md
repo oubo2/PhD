@@ -41,3 +41,4 @@ For Analyse_data <br />
 pip install pgmpy <br />
 pip install pygraphviz <br />
 pip install tsquared <br />
+pip install xgboost <br />

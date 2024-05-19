@@ -1,0 +1,14 @@
+Attendees:
+- Paul Ou
+- Michael Kirley
+- Mansoureh Maadi
+- Abel Armas Cervantes
+
+Items:
+- Update progress on methods applied to fault detection and root cause analysis seperately.
+- Abstract Paper for OPTIMA-CON, CPP and CQA, robust optimisation, DoE
+- Break down on survey paper
+
+Action:
+- Implement one Bayesian network paper
+- Assist on survey paper, draft in one month

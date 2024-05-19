@@ -1,0 +1,13 @@
+Attendees:
+- Paul Ou
+- Michael Kirley
+- Mansoureh Maadi
+- Abel Armas Cervantes
+
+Items:
+- Review paper "Root Cause Diagnosis of Process Fault Using KPCA and Bayesian Network"
+
+Actions:
+- Prepare three slides powerpoints
+- Implement in 2~3 weeks
+- Help out with survey paper

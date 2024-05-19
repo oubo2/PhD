@@ -1,0 +1,16 @@
+Attendees:
+- Paul Ou
+- Michael Kirley
+- Mansoureh Maadi
+- Abel Armas Cervantes
+
+Items:
+- Review ppt for paper "Root Cause Diagnosis of Process Fault Using KPCA and Bayesian Network", to be presented on Hub seminar
+- Plan for pre-confirmation
+- Review coding progress
+- Review purpose of two newly added meetings, discuss about shared dataset
+
+Actions:
+- Update ppt based on feedback
+- Help out with survey paper
+- Keep in mind about July Optima

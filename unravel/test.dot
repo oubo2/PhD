@@ -1,0 +1,19 @@
+strict digraph "" {
+	xmeas_7	[weight=None];
+	xmeas_13	[weight=None];
+	xmeas_7 -> xmeas_13	[weight=None];
+	xmeas_20	[weight=None];
+	xmeas_21	[weight=None];
+	xmeas_21 -> xmeas_7	[weight=None];
+	xmeas_21 -> xmeas_20	[weight=None];
+	xmeas_10	[weight=None];
+	xmeas_11	[weight=None];
+	xmeas_11 -> xmeas_7	[weight=None];
+	xmeas_11 -> xmeas_10	[weight=None];
+	xmeas_22	[weight=None];
+	xmeas_11 -> xmeas_22	[weight=None];
+	xmeas_12	[weight=None];
+	xmeas_14	[weight=None];
+	xmeas_12 -> xmeas_14	[weight=None];
+	xmeas_13 -> xmeas_20	[weight=None];
+}
