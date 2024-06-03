@@ -1,0 +1,14 @@
+Attendees:
+- Paul Ou
+- Michael Kirley
+- Mansoureh Maadi
+
+Items:
+- Review coding progress
+- Discuss research topic
+
+Actions:
+- Think about research topic and question
+- Finish implementing "KPCA + BN" by mid-end June
+- Variable interaction: feature importance/Mutual Information/Highly dependet variables, end-mid July
+- Read about different appraoches of anomaly detection in other domains, including NN, autoencoder, Bay, Hybrid

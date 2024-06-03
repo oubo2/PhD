@@ -1,0 +1,14 @@
+Attendees:
+- Paul Ou
+- Michael Kirley
+- Mansoureh Maadi
+- Abel Armas Cervantes
+
+Items:
+- Review ppt to be presented on Hub seminar
+- Review coding progress
+- Exploratory data analysis on dataset
+
+Actions:
+- Update ppt based on feedback
+- Coding

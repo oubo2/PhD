@@ -77,12 +77,11 @@ def index_to_coords(index, dim_sizes, coords):
 
 # Function to calculate the conditional probability P(X|Y)
 def calculate_conditional_probability(df, var_X, value_X, parents, parents_values):
-    conditions = [df[parents[i]] == parents_values[i] for i in range(len(parents))]
-    #print(var_X, value_X, parents, parents_values)
-    condition = df[parents[0]] == parents_values[0]
-    #print(condition.value_counts())
-    for i in range(len(parents)):
-        df = df[df[parents[i]] == parents_values[i]]
+    if len(parents) == 1:
+        df = df[df[parents] == parents_values]
+    else:
+        for i in range(len(parents)):
+            df = df[df[parents[i]] == parents_values[i]]
     total_count = len(df)
     if total_count == 0:
         return 0
@@ -129,8 +128,6 @@ def getBayesianNet(df_alarm):
             
             nodeDef = [calculate_conditional_probability(df_alarm, node_id, outcome, parents, i) 
                    for i in parents_outcomes for outcome in outcomes]
-            print(nodeDef)
         net.set_node_definition(node, nodeDef)
     
-
     return net

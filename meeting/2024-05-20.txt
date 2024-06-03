@@ -1,0 +1,16 @@
+Attendees:
+- Paul Ou
+- Michael Kirley
+- Mansoureh Maadi
+- Abel Armas Cervantes
+
+Items:
+- Review project team presentation to be presented on Hub seminar
+- Review ppt for paper "Root Cause Diagnosis of Process Fault Using KPCA and Bayesian Network" to be presented in journal club
+- Review coding progress
+- Explore paper "autoencoder-based anomaly root cause aalysis fro wind turbines"
+
+Actions:
+- Update ppt based on feedback
+- Coding
+- Add Mansoureh as official supervisor
