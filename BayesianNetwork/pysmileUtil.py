@@ -75,19 +75,6 @@ def index_to_coords(index, dim_sizes, coords):
         coords[i] = int(index / prod) % dim_sizes[i]        
         prod *= dim_sizes[i]
 
-# Function to calculate the conditional probability P(X|Y)
-def calculate_conditional_probability(df, var_X, value_X, parents, parents_values):
-    if len(parents) == 1:
-        df = df[df[parents] == parents_values]
-    else:
-        for i in range(len(parents)):
-            df = df[df[parents[i]] == parents_values[i]]
-    total_count = len(df)
-    if total_count == 0:
-        return 0
-    joint_count = len(df[df[var_X] == value_X])
-    return joint_count / total_count
-
 def convert_outcome_to_value(outcome):
     if outcome[:5] == "State":
         outcome = int(outcome[5:])
