@@ -57,11 +57,11 @@ def probabilityToBool(probabilityTable, threshold, greater=True):
     for r in range(row):
         for c in range(col):
             if probabilityTable[r][c] > threshold:
-                table[r][c] = True
+                table[r][c] = 1
             else:
-                table[r][c] = False
+                table[r][c] = 0
     if not greater:
-        table = [[not j for j in i] for i in table]
+        table = [[1 - j for j in i] for i in table]
     
     return table
 
@@ -129,7 +129,7 @@ def getNodesFromEdges(edges):
                 nodes.append(j)
     return nodes
 
-def alarm_df(df_normal, df_faulty):
+def alarm_df(df_normal, df_faulty, binary = True):
     # rare event alarm is set to trigger when process variables go beyond 6 standard deviations from the mean value measured
     # at normal operating conditions
     normal_mean = df_normal.mean()
@@ -138,32 +138,27 @@ def alarm_df(df_normal, df_faulty):
     lower = normal_mean - normal_std * 6
     upper = normal_mean + normal_std * 6
     df_alarm = pd.DataFrame(0, index = np.arange(df_faulty.shape[0]), columns=feature_list)
+    
     for feature in feature_list:
         alarm = []
         for i in df_faulty[feature]:
-            if i <= lower[feature] or i >= upper[feature]:
-                alarm.append(1)
+            if binary:
+                if i <= lower[feature] or i >= upper[feature]:
+                    alarm.append(1)
+                else:
+                    alarm.append(0)
             else:
-                alarm.append(0)
+                if i <= lower[feature]:
+                    alarm.append(2)
+                elif i >= upper[feature]:
+                    alarm.append(1)
+                else:
+                    alarm.append(0)
         if sum(alarm) == 0:
             # not index 0, need to be greater than kLag
             alarm[10] = 1
         df_alarm[feature] = alarm
-    '''
-    for feature in feature_list:
-        alarm = []
-        for i in df_faulty[feature]:
-            if i <= lower[feature]:
-                alarm.append(2)
-            elif i >= upper[feature]:
-                alarm.append(1)
-            else:
-                alarm.append(0)
-        if sum(alarm) == 0:
-            # not index 0, need to be greater than kLag
-            alarm[10] = 1
-        df_alarm[feature] = alarm
-    '''
+
     return df_alarm
 
 # Function to calculate the probability of a single variable
@@ -397,3 +392,63 @@ def transfer_entropy_continuous(X,Y,delay=1,gaussian_sigma=None):
 	# Transfer Entropy
 	TE = np.sum(elements)
 	return TE
+
+def table_perf_measure(table, boolTable):
+    TP, FP, TN, FN = 0, 0, 0, 0
+    for i in range(len(table)):
+        tp, fp, tn, fn = perf_measure(table[i], boolTable[i])
+        TP += tp
+        FP += fp
+        TN += tn
+        FN += fn
+    R = count_reverse(table, boolTable)
+    return TP, FP, TN, FN, R
+
+def perf_measure(y_actual, y_hat):
+    TP = 0
+    FP = 0
+    TN = 0
+    FN = 0
+
+    for i in range(len(y_hat)): 
+        if y_actual[i]==y_hat[i]==1:
+           TP += 1
+        if y_hat[i]==1 and y_actual[i]!=y_hat[i]:
+           FP += 1
+        if y_actual[i]==y_hat[i]==0:
+           TN += 1
+        if y_hat[i]==0 and y_actual[i]!=y_hat[i]:
+           FN += 1
+
+    return[TP, FP, TN, FN]
+
+def count_reverse(truth_table, table):
+    count = 0
+    assert(len(truth_table) == len(table) == len(truth_table[0]) == len(table[0]))
+    m = len(table)
+    for r in range(m):
+        for c in range(m):
+            if table[r][c] != truth_table[r][c]:
+                if table[c][r] != truth_table[c][r]:
+                    count += 1
+    return count // 2
+
+def get_statistics(TP, FP, TN, FN, R):
+    FDR = (R+FP) / (TP+FP)
+    TPR = TP / (TP+FN)
+    FPR = (R+FP) / (TN+FP)
+    PR = TP / (TP+FP)
+    RE = TP / (TP+FN)
+    F1 = 2*RE*PR / (RE+PR)
+    return FDR, TPR, FPR, PR, RE, F1
+
+def convert_edges_to_boolTable(edges, df):
+    features = list(df.columns)
+    n = len(features)
+    featureToIndex = {}
+    for i in range(len(features)):
+        featureToIndex[features[i]] = i
+    boolTable = [[0] * n for _ in range(n)]
+    for edge in edges:
+        boolTable[featureToIndex[edge[0]]][featureToIndex[edge[1]]] = 1
+    return boolTable

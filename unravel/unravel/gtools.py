@@ -392,4 +392,4 @@ def gplint(g, fname='graph.html'):
     net.from_nx(g)
     net.toggle_physics(False)
     net.show_buttons()
-    net.show(fname)
+    net.show(fname, notebook=False)
